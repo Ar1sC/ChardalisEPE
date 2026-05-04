@@ -21,7 +21,7 @@ Static multi-page website for `chardalisepe.gr`.
 - Email: `info@chardalisepe.gr`
 - Location/service areas: currently `Θεσσαλονίκη`
 - Company-specific proof: licenses, exact address, real facility photos, legal text
-- Contact form: currently front-end only; connect to email, CRM, or backend before production use
+- Contact form: replace `YOUR_WEB3FORMS_ACCESS_KEY` in `epikoinonia.html` with the Web3Forms access key before production use
 
 ## SEO included
 

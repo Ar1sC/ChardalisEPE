@@ -187,6 +187,12 @@ a {
   color: var(--white);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+  transform: none;
+}
+
 .btn-outline {
   border-color: rgba(255, 255, 255, 0.35);
   color: var(--white);
@@ -703,6 +709,10 @@ h3 {
   background: var(--white);
 }
 
+.botcheck {
+  display: none;
+}
+
 .form label {
   display: grid;
   gap: 8px;
@@ -737,6 +747,14 @@ h3 {
   min-height: 22px;
   color: var(--green-dark);
   font-weight: 850;
+}
+
+.status-message.is-error {
+  color: #a12b2b;
+}
+
+.status-message.is-success {
+  color: var(--green-dark);
 }
 
 @media (max-width: 980px) {

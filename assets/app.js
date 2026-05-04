@@ -27,11 +27,55 @@ document.querySelectorAll(".faq-button").forEach((button) => {
 
 const contactForm = document.querySelector("[data-contact-form]");
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const status = contactForm.querySelector(".status-message");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const defaultButtonText = submitButton?.textContent || "Αποστολή Μηνύματος";
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
     if (status) {
-      status.textContent = "Ευχαριστούμε. Θα επικοινωνήσουμε μαζί σας για το επόμενο βήμα.";
+      status.textContent = "";
+      status.classList.remove("is-success", "is-error");
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Αποστολή...";
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Form submission failed");
+      }
+
+      contactForm.reset();
+      if (status) {
+        status.textContent = "Ευχαριστούμε. Το μήνυμά σας στάλθηκε και θα επικοινωνήσουμε μαζί σας σύντομα.";
+        status.classList.add("is-success");
+      }
+    } catch (error) {
+      if (status) {
+        status.textContent = "Δεν ήταν δυνατή η αποστολή. Παρακαλούμε δοκιμάστε ξανά ή καλέστε μας.";
+        status.classList.add("is-error");
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
+      }
     }
   });
 }
