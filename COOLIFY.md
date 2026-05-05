@@ -25,7 +25,7 @@ Use these settings for `chardalisepe.gr`.
 
 ## Required before production deploy
 
-- Replace `REPLACE_WITH_WEB3FORMS_ACCESS_KEY` in `epikoinonia.html`
-- Replace placeholder phone/email/address/service areas in all pages and JSON-LD
+- Verify Web3Forms delivery from `epikoinonia.html`
+- Replace any remaining placeholder address/service areas in all pages and JSON-LD
 - Confirm DNS A/AAAA or CNAME records point to the Coolify server
 - Submit `https://chardalisepe.gr/sitemap.xml` in Google Search Console

@@ -17,11 +17,11 @@ Static multi-page website for `chardalisepe.gr`.
 
 ## Replace before publishing
 
-- Phone: `2310 000 000`
-- Email: `info@chardalisepe.gr`
+- Phone: `6944245218`
+- Email: `chardalisepe@hotmail.gr`
 - Location/service areas: currently `Θεσσαλονίκη`
 - Company-specific proof: licenses, exact address, real facility photos, legal text
-- Contact form: replace `YOUR_WEB3FORMS_ACCESS_KEY` in `epikoinonia.html` with the Web3Forms access key before production use
+- Contact form: Web3Forms access key is configured in `epikoinonia.html`; verify delivery before production launch
 
 ## SEO included
 
