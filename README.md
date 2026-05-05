@@ -7,7 +7,13 @@ Static multi-page website for `chardalisepe.gr`.
 - `index.html`
 - `ypiresies.html`
 - `anakyklosi-metallon.html`
+- `anakyklosi-metallon-thessaloniki.html`
+- `anakyklosi-xalkou-thessaloniki.html`
+- `anakyklosi-sidirou-thessaloniki.html`
+- `anakyklosi-alouminiou-thessaloniki.html`
+- `skrap-thessaloniki.html`
 - `aposyrsi-autokiniton.html`
+- `aposyrsi-autokiniton-thessaloniki.html`
 - `oristiki-diagrafi.html`
 - `paralavi-scrap.html`
 - `diadikasia.html`
@@ -30,10 +36,16 @@ Static multi-page website for `chardalisepe.gr`.
 - `robots.txt`
 - `sitemap.xml`
 - LocalBusiness JSON-LD on homepage
+- Service, FAQPage and BreadcrumbList JSON-LD on local SEO landing pages
 - FAQPage JSON-LD on FAQ page
 - Internal linking across service pages
+- `llms.txt` and `llms-full.txt` for AI/search-agent factual summaries
 - Privacy Policy page for contact-form data handling
 - WebP image assets with PNG fallback and JPEG Open Graph image
+
+## Local SEO launch checklist
+
+See `LOCAL_SEO.md` for the off-site work that cannot be completed inside the static repo: Google Business Profile verification, citations, reviews, photos, Search Console, Bing Webmaster Tools and recurring content/review operations.
 
 ## Deployment
 

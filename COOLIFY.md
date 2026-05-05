@@ -29,3 +29,5 @@ Use these settings for `chardalisepe.gr`.
 - Replace any remaining placeholder address/service areas in all pages and JSON-LD
 - Confirm DNS A/AAAA or CNAME records point to the Coolify server
 - Submit `https://chardalisepe.gr/sitemap.xml` in Google Search Console
+- Submit sitemap in Bing Webmaster Tools
+- Verify Google Business Profile details match the site phone, email, service area and final address if published
