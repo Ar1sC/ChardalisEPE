@@ -717,7 +717,7 @@ h3 {
   font-weight: 850;
 }
 
-.form input,
+.form input:not([type="checkbox"]):not([type="hidden"]),
 .form textarea,
 .form select {
   width: 100%;
@@ -740,23 +740,27 @@ h3 {
 }
 
 .form-consent {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 10px;
-  align-items: start;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
   color: var(--muted);
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.45;
 }
 
 .form-consent input {
   width: 18px;
   height: 18px;
-  margin-top: 3px;
+  min-width: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--green);
 }
 
 .botcheck {
   position: absolute;
+  width: 1px;
+  height: 1px;
   left: -9999px;
   opacity: 0;
 }

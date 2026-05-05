@@ -25,14 +25,49 @@ document.querySelectorAll(".faq-button").forEach((button) => {
   });
 });
 
+const greekPhonePattern = /^(?:69\d{8}|2\d{9}|\+3069\d{8}|003069\d{8}|\+302\d{9}|00302\d{9})$/;
+const normalizePhone = (value) => value.replace(/[\s().-]/g, "");
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+
 const contactForm = document.querySelector("[data-contact-form]");
 if (contactForm) {
+  const phoneInput = contactForm.querySelector('input[name="phone"]');
+  const emailInput = contactForm.querySelector('input[name="email"]');
+  const messageInput = contactForm.querySelector('textarea[name="message"]');
+
+  phoneInput?.addEventListener("input", () => {
+    phoneInput.setCustomValidity("");
+  });
+
+  emailInput?.addEventListener("input", () => {
+    emailInput.setCustomValidity("");
+  });
+
+  messageInput?.addEventListener("input", () => {
+    messageInput.setCustomValidity("");
+  });
+
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const status = contactForm.querySelector(".status-message");
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const defaultButtonText = submitButton?.textContent || "Αποστολή Μηνύματος";
     const accessKey = contactForm.querySelector('input[name="access_key"]')?.value;
+
+    if (phoneInput) {
+      phoneInput.value = normalizePhone(phoneInput.value);
+      if (!greekPhonePattern.test(phoneInput.value)) {
+        phoneInput.setCustomValidity("Βάλτε έγκυρο ελληνικό τηλέφωνο, π.χ. 6944245218, 2310000000 ή +306944245218.");
+      }
+    }
+
+    if (emailInput && !isValidEmail(emailInput.value)) {
+      emailInput.setCustomValidity("Βάλτε έγκυρο email, π.χ. name@example.com.");
+    }
+
+    if (messageInput && messageInput.value.trim().length < 10) {
+      messageInput.setCustomValidity("Γράψτε λίγες περισσότερες πληροφορίες για το αίτημά σας.");
+    }
 
     if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
