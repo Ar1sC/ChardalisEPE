@@ -32,6 +32,7 @@ if (contactForm) {
     const status = contactForm.querySelector(".status-message");
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const defaultButtonText = submitButton?.textContent || "Αποστολή Μηνύματος";
+    const accessKey = contactForm.querySelector('input[name="access_key"]')?.value;
 
     if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
@@ -41,6 +42,14 @@ if (contactForm) {
     if (status) {
       status.textContent = "";
       status.classList.remove("is-success", "is-error");
+    }
+
+    if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY" || accessKey === "REPLACE_WITH_WEB3FORMS_ACCESS_KEY") {
+      if (status) {
+        status.textContent = "Η φόρμα δεν έχει ενεργοποιηθεί ακόμη. Παρακαλούμε καλέστε ή στείλτε email.";
+        status.classList.add("is-error");
+      }
+      return;
     }
 
     if (submitButton) {

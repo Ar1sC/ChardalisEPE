@@ -32,6 +32,12 @@ Static multi-page website for `chardalisepe.gr`.
 - LocalBusiness JSON-LD on homepage
 - FAQPage JSON-LD on FAQ page
 - Internal linking across service pages
+- Privacy Policy page for contact-form data handling
+- WebP image assets with PNG fallback and JPEG Open Graph image
+
+## Deployment
+
+See `COOLIFY.md` for Coolify production settings.
 
 ## Local preview
 
